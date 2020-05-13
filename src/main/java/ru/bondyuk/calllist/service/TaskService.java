@@ -25,4 +25,8 @@ public class TaskService {
         Task task = new Task(orderId, deliveryDate);
         return repository.save(task);
     }
+
+    public List<Task> findByFilter(Date fromDate, Date toDate, String orderId) {
+        return repository.findAllByDeliveryDateBetweenAndOptionalOrderId(fromDate, toDate, orderId);
+    }
 }
