@@ -19,11 +19,6 @@ public class TaskController {
         this.service = service;
     }
 
-    @GetMapping
-    public List<Task> getAllTasks() {
-        return service.findAll();
-    }
-
     @GetMapping("/search")
     public List<Task> getFilteredTasks(@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam(name = "fromDate") Date fromDate,
                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) @RequestParam(name = "toDate") Date toDate,
